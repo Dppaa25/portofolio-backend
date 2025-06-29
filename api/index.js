@@ -14,9 +14,9 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' })); // Agar server b
 
 // --- Koneksi ke Database MongoDB ---
 // --- Koneksi ke Database MongoDB ---
-// mongoose.connect(process.env.MONGO_URI)
-//     .then(() => console.log('Sukses terhubung ke MongoDB Atlas'))
-//     .catch(err => console.error('Gagal terhubung ke MongoDB:', err));
+mongoose.connect(process.env.MONGO_URI)
+     .then(() => console.log('Sukses terhubung ke MongoDB Atlas'))
+     .catch(err => console.error('Gagal terhubung ke MongoDB:', err));
 
 // --- Mongoose Schemas (Blueprint/Struktur Data di Database) ---
 // Fungsi ini membantu kita membuat schema dengan rapi

@@ -13,9 +13,10 @@ app.use(express.json({ limit: '50mb' })); // Agar server bisa menerima data JSON
 app.use(express.urlencoded({ extended: true, limit: '50mb' })); // Agar server bisa memahami data dari form
 
 // --- Koneksi ke Database MongoDB ---
-mongoose.connect(process.env.MONGO_URI)
-    .then(() => console.log('Sukses terhubung ke MongoDB Atlas'))
-    .catch(err => console.error('Gagal terhubung ke MongoDB:', err));
+// --- Koneksi ke Database MongoDB ---
+// mongoose.connect(process.env.MONGO_URI)
+//     .then(() => console.log('Sukses terhubung ke MongoDB Atlas'))
+//     .catch(err => console.error('Gagal terhubung ke MongoDB:', err));
 
 // --- Mongoose Schemas (Blueprint/Struktur Data di Database) ---
 // Fungsi ini membantu kita membuat schema dengan rapi

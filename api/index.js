@@ -131,8 +131,24 @@ app.post('/api/login', (req, res) => {
     }
 });
 
+app.get('/api/test-db', async (req, res) => {
+  console.log("Mencoba terhubung ke MongoDB...");
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log("Koneksi MongoDB berhasil melalui endpoint tes!");
+    res.status(200).send("Koneksi database berhasil!");
+  } catch (error) {
+    console.error("!!! KONEKSI DATABASE GAGAL !!!");
+    console.error("Pesan Error:", error.message);
+    // Mengirim error yang lebih detail sebagai respons
+    res.status(500).json({ 
+      message: "Koneksi database gagal.", 
+      error: error.message,
+      fullError: error // Mengirim objek error lengkap
+    });
+  }
+});
 
-// --- Daftarkan semua URL API menggunakan "Pabrik" yang kita buat ---
 app.use('/api/portfolio', createCrudEndpoints(Portfolio));
 app.use('/api/articles', createCrudEndpoints(Article));
 app.use('/api/education', createCrudEndpoints(Education));

@@ -137,7 +137,7 @@ app.get('/api/test-db', async (req, res) => {
   try {
     await mongoose.connect(process.env.MONGO_URI);
     console.log("Koneksi MongoDB berhasil melalui endpoint tes!");
-    res.status(200).send("Koneksi database berhasil!");
+    res.status(200).send("Koneksi database VERSI TERBARU berhasil!");
   } catch (error) {
     console.error("!!! KONEKSI DATABASE GAGAL !!!");
     console.error("Pesan Error:", error.message);
